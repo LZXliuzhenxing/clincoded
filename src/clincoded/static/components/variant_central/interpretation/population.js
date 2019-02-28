@@ -947,7 +947,7 @@ var CurationInterpretationPopulation = module.exports.CurationInterpretationPopu
     renderExacGnomadHeader: function(datasetCheck, loading_myVariantInfo, dataset, gnomadExac, response, metadata, datasetName) {
         let datasetVariant = '';
         let datasetLink;
-        let _version;
+        let version;
 
         if (datasetCheck) {
             datasetVariant = ' ' + dataset._extra.chrom + ':' + dataset._extra.pos + ' ' + dataset._extra.ref + '/' + dataset._extra.alt + ' (GRCh37)';
@@ -967,11 +967,11 @@ var CurationInterpretationPopulation = module.exports.CurationInterpretationPopu
 
         // Set the source version
         if (metadata && metadata.src_version) {
-            _version = (datasetName === 'ExAC') ? metadata.src_version.exac : (datasetName === 'gnomAD') ? metadata.src_version.gnomad : '';
+            version = (datasetName === 'ExAC') ? metadata.src_version.exac : (datasetName === 'gnomAD') ? metadata.src_version.gnomad : '';
         }
 
         return (
-            <h3 className="panel-title">{datasetName}{datasetVariant} {_version ? <span>Version: {_version}</span> : null}
+            <h3 className="panel-title">{datasetName}{datasetVariant} {version ? <span>Version: {version}</span> : null}
                 <a href="#credit-myvariant" className="credit-myvariant" title="MyVariant.info"><span>MyVariant</span></a>
                 {datasetLink}
             </h3>
