@@ -16,6 +16,14 @@ class CurationRecordVariant extends Component {
             if (dbSNPId && dbSNPId.indexOf('rs') < 0) {
                 dbSNPId = 'rs' + dbSNPId;
             }
+            var nameList = data.otherNameList.map((name, i) => {
+                return (
+                    <li key={i}>{name}</li>
+                )
+            })
+            if (data.otherNameList == undefined || data.otherNameList.length == 0) {
+                nameList = null;
+            }
         }
 
         return (
@@ -33,6 +41,9 @@ class CurationRecordVariant extends Component {
                             {dbSNPId ?
                                 <dd>dbSNP ID:&nbsp;<a href={'https://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi?rs=' + dbSNPId.replace('rs', '')} target="_blank" title={'dbSNP page for ' + dbSNPId + ' in a new window'}>{dbSNPId}</a></dd>
                                 : null}
+                            {nameList ?
+                                <dd>Other Names: <ul>{nameList}</ul></dd>
+                                : null}      
                         </dl>
                         : null}
                 </div>
