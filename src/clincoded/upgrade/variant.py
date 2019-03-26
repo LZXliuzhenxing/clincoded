@@ -120,5 +120,4 @@ def variant_3_4(value, system):
 def variant_4_5(value, system):
     # https://github.com/ClinGen/clincoded/issues/1514
     # Add legacy names for variants
-    if 'otherNameList' not in value:
-        value['otherNameList'] = []
+    return
